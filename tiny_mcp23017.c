@@ -36,13 +36,13 @@ void tmcp23017_close(tinyMCP23017 *o) {
   tinyI2C_close(&o->ti2c);
 }
 
-int tmcp23017_write(tinyMCP23017 *o, uint8_t pin, bool state) {
+int tmcp23017_write_pin(tinyMCP23017 *o, uint8_t pin, bool state) {
   assert(o != NULL);
   assert(pin < 128);
-  uint8_t deviceIndex = pin / 16; // each MCP23017 has 16 GPIO pins
-  uint8_t gpio_index = pin % 8; // index of pin within GPIOA or GPIOB
-  uint8_t gpioab_index = ((pin % 16) >= 8); // are we working with GPIOA or GPIOB (0 or 1)
-  uint8_t reg_addr = (gpioab_index == 0) ? 0x12 : 0x13; // register address of GPIOA or GPIOB
+  uint8_t deviceIndex = pin >> 4; // each MCP23017 has 16 GPIO pins; (pin/16)
+  uint8_t gpio_index = pin & 0x7; // index of pin within GPIOA or GPIOB; (pin%8)
+  uint8_t gpioab_index = (pin & 0xF) >= 8; // are we working with GPIOA or GPIOB (0 or 1); (pin%16)
+  uint8_t reg_addr = 0x12 + gpioab_index; // register address of GPIOA or GPIOB
 
   if (state) {
     o->gpio[2*deviceIndex+gpioab_index] |= (0x1 << gpio_index);
@@ -50,8 +50,8 @@ int tmcp23017_write(tinyMCP23017 *o, uint8_t pin, bool state) {
     o->gpio[2*deviceIndex+gpioab_index] &= ~(0x1 << gpio_index);
   }
 
-  printf("deviceIndex:%i gpio_index:%i gpioab_index:%i reg_addr:0x%x state:0x%x\n",
-      deviceIndex, gpio_index, gpioab_index, reg_addr, o->gpio[2*deviceIndex+gpioab_index]);
+  // printf("deviceIndex:%i gpio_index:%i gpioab_index:%i reg_addr:0x%x state:0x%x\n",
+  //     deviceIndex, gpio_index, gpioab_index, reg_addr, o->gpio[2*deviceIndex+gpioab_index]);
 
   return tinyI2C_write(&o->ti2c, TINYI2C_MCP23017_BASE_ADDRESS+deviceIndex, reg_addr, o->gpio[2*deviceIndex+gpioab_index]);
 }

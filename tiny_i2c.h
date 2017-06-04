@@ -40,5 +40,7 @@ void tinyI2C_close(tinyI2C *o);
  * @param deviceAddress  The address of the target i2c device e.g. 0x20 + [0-127] (i.e. the chip address)
  * @param reg_addr  The register to write to [0-15] (i.e. the local GPIO pin)
  * @param data  The (char) data to write (e.g. 0 or 1) (i.e. ON or OFF)
+ *
+ * @return 0 if successful, negative error code otherwise.
  */
 int tinyI2C_write(tinyI2C *o, uint8_t deviceAddress, uint8_t reg_addr, uint8_t data);

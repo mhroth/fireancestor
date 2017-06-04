@@ -25,4 +25,13 @@ void tmcp23017_open(tinyMCP23017 *o, const char *i2cFilename);
 
 void tmcp23017_close(tinyMCP23017 *o);
 
-int tmcp23017_write(tinyMCP23017 *o, uint8_t pin, bool state);
+/**
+ * Update the state of a logical pin.
+ *
+ * @param o  Pointer to the tinyMCP23017 object
+ * @param pin  The pin index to write to [0-127]
+ * @param state  The state (ON or OFF) to assign to the pin
+ *
+ * @return 0 if successful, negative error code otherwise.
+ */
+int tmcp23017_write_pin(tinyMCP23017 *o, uint8_t pin, bool state);

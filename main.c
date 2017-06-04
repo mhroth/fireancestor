@@ -27,8 +27,8 @@ int main(int narg, char **argc) {
   tmcp23017_open(&ti2c, "/dev/i2c-1");
 
   for (int i = 1; i < 128; ++i) {
-    tmcp23017_write(&ti2c, (i-1)%16, false);
-    tmcp23017_write(&ti2c, i%16, true);
+    tmcp23017_write_pin(&ti2c, (i-1)%16, false);
+    tmcp23017_write_pin(&ti2c, i%16, true);
 
     sleep_nano.tv_sec = 0;
     sleep_nano.tv_nsec = 100000000;
