@@ -35,7 +35,6 @@
 void tinyI2C_open(tinyI2C *o, const char *i2cFilename) {
   o->i2cDesc = open(i2cFilename, O_RDWR);
   if(o->i2cDesc < 0) {
-    perror("Could not open file");
     fprintf(stderr, "Could not open file '%s'\n", i2cFilename);
     assert(false);
   }
@@ -44,7 +43,6 @@ void tinyI2C_open(tinyI2C *o, const char *i2cFilename) {
 void tinyI2C_close(tinyI2C *o) {
   int ret = close(o->i2cDesc);
   if (ret < 0) {
-     perror("Could not close i2c file");
      fprintf(stderr, "Could not close i2c file\n");
      assert(false);
   }
