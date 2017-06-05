@@ -41,7 +41,7 @@ int tmcp23017_write_pin(tinyMCP23017 *o, uint8_t pin, bool state) {
   assert(pin < 128);
   uint8_t deviceIndex = pin >> 4; // each MCP23017 has 16 GPIO pins; (pin/16)
   uint8_t gpio_index = pin & 0x7; // index of pin within GPIOA or GPIOB; (pin%8)
-  uint8_t gpioab_index = (pin & 0xF) >= 8; // are we working with GPIOA or GPIOB (0 or 1); (pin%16)
+  uint8_t gpioab_index = (pin & 0xF) >> 3; // are we working with GPIOA or GPIOB (0 or 1); (pin%16 >= 8)
   uint8_t reg_addr = 0x12 + gpioab_index; // register address of GPIOA or GPIOB
 
   if (state) {

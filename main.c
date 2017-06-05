@@ -15,24 +15,37 @@
  */
 
 #include <assert.h>
+#include <signal.h>
 #include <stdio.h>
 #include <time.h>
 
 #include "tiny_mcp23017.h"
 
+static volatile bool _keepRunning = true;
+
+static void sigintHandler(int x) {
+  printf("Termination signal received.\n"); // handle Ctrl+C
+  _keepRunning = false;
+}
+
 int main(int narg, char **argc) {
+  // register the SIGINT handler
+  signal(SIGINT, &sigintHandler);
+
   struct timespec sleep_nano;
 
   tinyMCP23017 ti2c;
   tmcp23017_open(&ti2c, "/dev/i2c-1");
 
-  for (int i = 1; i < 128; ++i) {
+  uint32_t i = 1;
+  while (_keepRunning) {
     tmcp23017_write_pin(&ti2c, (i-1)%16, false);
     tmcp23017_write_pin(&ti2c, i%16, true);
 
     sleep_nano.tv_sec = 0;
     sleep_nano.tv_nsec = 100000000;
     nanosleep(&sleep_nano, NULL);
+    ++i;
   }
 
   tmcp23017_close(&ti2c);
