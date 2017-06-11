@@ -1,0 +1,6 @@
+#N canvas 142 618 450 300 10;
+#X obj 118 69 midiin;
+#X obj 118 91 print a;
+#X obj 130 114 print b;
+#X connect 0 0 1 0;
+#X connect 0 1 2 0;
