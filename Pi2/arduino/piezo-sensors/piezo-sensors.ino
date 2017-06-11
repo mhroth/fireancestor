@@ -17,27 +17,12 @@ void loop() {
   sensor1Reading = analogRead(A1);
   
   if (sensor0Reading > threshold) {
-    Serial.print("0 = ");
-    Serial.println(sensor0Reading);
-    MIDImessage(noteON, 60, 1);//turn note on
-    delay(300);//hold note for 300ms
-    MIDImessage(noteON, 60, 0);//turn note off (note on with velocity 0)
+    Serial.write(sensor0Reading);
   }
   
   if (sensor1Reading > threshold) {
-    Serial.print("1 = ");
-    Serial.println(sensor1Reading);
-    MIDImessage(noteON, 61, 1);//turn note on
-    delay(300);//hold note for 300ms
-    MIDImessage(noteON, 61, 0);//turn note off (note on with velocity 0)
+    Serial.write(sensor1Reading);
   }
   
   delay(10);  // delay to avoid overloading the serial port buffer
-}
-
-//send MIDI message
-void MIDImessage(byte command, byte data1, byte data2) {
-  Serial.write(command);
-  Serial.write(data1);
-  Serial.write(data2);
 }
