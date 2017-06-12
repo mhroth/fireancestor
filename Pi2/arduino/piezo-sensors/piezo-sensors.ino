@@ -17,11 +17,13 @@ void loop() {
   sensor1Reading = analogRead(A1);
   
   if (sensor0Reading > threshold) {
-    Serial.write(sensor0Reading);
+    Serial.write(0);
+    Serial.write(sensor0Reading+10);
   }
   
   if (sensor1Reading > threshold) {
-    Serial.write(sensor1Reading);
+    Serial.write(1);
+    Serial.write(sensor1Reading+10);
   }
   
   delay(10);  // delay to avoid overloading the serial port buffer
