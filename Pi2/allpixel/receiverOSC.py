@@ -10,7 +10,7 @@ import time
 #Load driver for the AllPixel
 from bibliopixel.drivers.serial_driver import *
 #set number of pixels & LED type here 
-driver = DriverSerial(num = 30, type = LEDTYPE.WS2812B, dev = "/dev/cu.usbmodem23451", c_order = ChannelOrder.GRB)
+driver = DriverSerial(num = 30, type = LEDTYPE.WS2812B, dev = "/dev/tty.usbmodem23451", c_order = ChannelOrder.GRB)
 
 #load the LEDStrip class
 from bibliopixel.led import *
@@ -19,10 +19,11 @@ led = LEDStrip(driver)
 #load channel test animation
 # from bibliopixel.animation import StripChannelTest
 # anim = StripChannelTest(led)
-
-server = OSCServer( ("localhost", 5005) )
+port = 5005
+server = OSCServer( ("localhost", port) )
 server.timeout = 0
 run = True
+print ('OSC listening on port ', port)
 
 def printIt(path, tags, args, source):
     if (args[0]==0):
@@ -31,24 +32,31 @@ def printIt(path, tags, args, source):
         print("Direction: Forward")
 
 def fillRGB (path, tags, args, source):
-	print('received fillRGB', args)
 	r = args[0]
 	g = args[1]
 	b = args[2]
 	start = args[3]
 	end = args[4]
-	led.all_off()
+	# led.all_off()
 	led.fillRGB(r,g,b,start,end)
 	led.update()
 
-def updateLED (path, tags, args, source):
-	print('received updateLED', args)
+def singleLED (path, tags, args, source):
 	index = args[0]
-	led.all_off()
-	led.setRGB(index, 255,128,64)
+	r = args[1]
+	g = args[2]
+	b = args[3]
+	led.setRGB(index, r,g,b)
+
+def update (path, tags, args, source):
 	led.update()
 
-server.addMsgHandler( "/led", updateLED)
+def allOff (path, tags, args, source):
+	led.all_off()
+
+server.addMsgHandler( "/allOff", allOff)
+server.addMsgHandler( "/update", update)
+server.addMsgHandler( "/singleLED", singleLED)
 server.addMsgHandler( "/fillRGB", fillRGB)
 
 def each_frame():
