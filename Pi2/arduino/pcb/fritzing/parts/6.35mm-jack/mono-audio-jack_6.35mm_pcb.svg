@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 32.844187 20.143887"
+   width="32.844196mm"
+   gorn="0"
+   height="20.143888mm"
+   id="svg2"
+   version="1.2"
+   x="0in"
+   y="0in"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="mono-audio-jack_6.35mm_pcb.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview20"
+     showgrid="false"
+     inkscape:zoom="2.6637549"
+     inkscape:cx="58.188537"
+     inkscape:cy="35.687991"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <desc
+     id="desc3">
+    <referenceFile>mono-audio-jack_pcb.svg</referenceFile>
+  </desc>
+  <metadata
+     id="metadata48">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs46" />
+  <g
+     gorn="0.3"
+     id="silkscreen">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.18476379;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.0"
+       d="m 3.0836749,1.9945473 0,18.0473807 21.0055871,0 0,-18.0473807 z"
+       id="path4429" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.17818305;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.1"
+       d="m 0.08072137,5.4492627 0,11.1379493 3.01155253,0 0,-11.1379493 z"
+       id="path3373" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.17499998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.2"
+       d="m 29.717495,5.5158986 0,11.0046794 3.079996,0 0,-11.0046794 z"
+       id="path4175" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.17638887;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.3"
+       d="M 29.986832,5.5261375 31.430891,16.501747"
+       id="path4187" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.18234421;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.4"
+       d="m 31.486841,5.5266585 1.286118,9.5102845"
+       id="path4189" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.18531059;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.5"
+       d="m 24.083947,3.3676166 0,15.3012424 1.205095,0 0,-15.3012424 c -2.465302,0 -4.010869,0 -1.205095,0 z"
+       id="path4215" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.17499998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       gorn="0.3.6"
+       d="m 25.279277,4.1172394 0,13.8019986 4.443775,0 0,-13.8019986 c -9.090781,0 -14.790054,0 -4.443775,0 z"
+       id="path4241" />
+  </g>
+  <g
+     transform="translate(0.82422138,5.166628)"
+     id="g14">
+    <g
+       gorn="0.4.0"
+       id="copper1">
+      <g
+         gorn="0.4.0.0"
+         id="copper0">
+        <ellipse
+           style="fill:none;stroke:#f7bd13;stroke-width:0.80974174"
+           connectorname="SLEEVE"
+           rx="1.5951289"
+           ry="1.595129"
+           gorn="0.4.0.0.0"
+           id="connector0pad"
+           cx="18.675776"
+           cy="-3.1666281" />
+        <ellipse
+           style="fill:none;stroke:#f7bd13;stroke-width:0.80974174"
+           connectorname="SIGNAL"
+           rx="1.5951289"
+           ry="1.595129"
+           gorn="0.4.0.0.1"
+           id="connector1pin"
+           cx="6.1757755"
+           cy="-3.1666281" />
+      </g>
+    </g>
+  </g>
+</svg>
