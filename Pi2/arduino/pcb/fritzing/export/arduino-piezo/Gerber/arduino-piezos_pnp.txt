@@ -4,7 +4,7 @@
 *eMail=
 *
 *Project=arduino-piezos
-*Date=16:26:45
+*Date=18:20:58
 *CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
 *
 *
@@ -13,28 +13,28 @@
 *Rotation in degree (0-360, math. pos.)
 *
 *No;Value;Package;X;Y;Rotation;Side;Name
-1;;audio-jack;13.0972;-40.7395;-90;Bottom;U4
-2;;300 mil [THT];79.2406;-12.8174;180;Bottom;D0
-3;;;4.02524;-3.81737;0;Bottom;Hole2
-4;;300 mil [THT];34.8098;-12.8174;180;Bottom;D2
-5;;;91.0252;-3.81737;0;Bottom;Hole1
-6;;THT;43.4447;-2.81737;90;Bottom;J3
-7;1M;THT;58.1052;-20.8174;0;Bottom;R1
-8;;;3.02524;-37.8174;0;Bottom;Hole3
-9;;300 mil [THT];12.2406;-12.8174;180;Bottom;D3
-10;1M;THT;80.4217;-20.4374;0;Bottom;R0
-11;;;13.6359;-7.38867;0;Bottom;TXT4
-12;1M;THT;13.4217;-20.8172;0;Bottom;R3
-13;;;13.6359;-2.68209;0;Bottom;TXT4
-14;;audio-jack;79.0972;-40.7395;-90;Bottom;U1
-15;;audio-jack;57.0972;-40.7395;-90;Bottom;U2
-16;;;35.7727;-6.28367;0;Bottom;TXT5
-17;;;91.0252;-37.8174;0;Bottom;Hole4
-18;;;13.6359;-4.67282;0;Bottom;TXT4
-19;;300 mil [THT];57.2406;-12.8174;180;Bottom;D1
-20;;;47.2371;-6.28367;0;Bottom;TXT5
-21;1M;THT;35.9909;-20.8172;0;Bottom;R2
-22;;;54.3473;-2.67511;0;Bottom;TXT5
-23;;;43.4046;-6.28367;0;Bottom;TXT5
-24;;audio-jack;35.0972;-40.7395;-90;Bottom;U3
-25;;;39.6153;-6.28367;0;Bottom;TXT5
+1;;300 mil [THT];57.2406;-12.8175;180;Bottom;D1
+2;;audio-jack;57.0971;-40.7395;-90;Bottom;U2
+3;;;54.3472;-2.67518;0;Bottom;TXT5
+4;;;40.0242;-6.46536;0;Bottom;TXT5
+5;;;91.0253;-37.8174;0;Bottom;Hole4
+6;1M;THT;35.9909;-20.8173;0;Bottom;R2
+7;;;13.6359;-2.68201;0;Bottom;TXT4
+8;;;43.8136;-6.46536;0;Bottom;TXT5
+9;;;36.6358;-6.46536;0;Bottom;TXT5
+10;;;4.02524;-3.81724;0;Bottom;Hole2
+11;;300 mil [THT];34.8098;-12.8175;180;Bottom;D2
+12;;300 mil [THT];79.2406;-12.8175;180;Bottom;D0
+13;;THT;43.602;-2.81737;90;Bottom;J4
+14;;;13.6359;-4.6728;0;Bottom;TXT4
+15;;;13.6359;-7.38868;0;Bottom;TXT4
+16;;;47.237;-6.46536;0;Bottom;TXT5
+17;;;3.02524;-37.8174;0;Bottom;Hole3
+18;;audio-jack;35.0972;-40.7395;-90;Bottom;U3
+19;1M;THT;58.1053;-20.8174;0;Bottom;R1
+20;1M;THT;13.4217;-20.8173;0;Bottom;R3
+21;;audio-jack;79.0971;-40.7395;-90;Bottom;U1
+22;;300 mil [THT];12.2406;-12.8175;180;Bottom;D3
+23;1M;THT;80.4217;-20.4374;0;Bottom;R0
+24;;;91.0253;-3.81724;0;Bottom;Hole1
+25;;audio-jack;13.0972;-40.7395;-90;Bottom;U4
