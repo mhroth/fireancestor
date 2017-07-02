@@ -2,13 +2,14 @@
 
 const int threshold = 1;  // threshold value to decide when the detected sound is a knock or not
 
-int sensor0Reading = A0; // the piezo is connected to analog pin 0
-int sensor1Reading = A1; // the piezo is connected to analog pin 1
+int sensor0Reading;
+int sensor1Reading;
 
-byte noteON = 144;//note on command
+bool arduinoDebug = true;
 
 void setup() {
   Serial.begin(9600);       // use the serial port
+//  pinMode(2, INPUT_PULLUP);  
 }
 
 void loop() {
@@ -19,12 +20,22 @@ void loop() {
   if (sensor0Reading > threshold) {
     Serial.write(0);
     Serial.write(sensor0Reading+10);
+    
+    if (arduinoDebug) {
+      Serial.print("A0: ");
+      Serial.println(sensor0Reading);      
+    }
   }
   
   if (sensor1Reading > threshold) {
     Serial.write(1);
     Serial.write(sensor1Reading+10);
+    
+    if (arduinoDebug) {
+      Serial.print("A1: ");
+      Serial.println(sensor1Reading);
+    }
   }
-  
-  delay(10);  // delay to avoid overloading the serial port buffer
+    
+  delay(5);  // delay to avoid overloading the serial port buffer
 }

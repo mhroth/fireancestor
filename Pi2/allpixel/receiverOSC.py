@@ -25,28 +25,29 @@ server.timeout = 0
 run = True
 print ('OSC listening on port ', port)
 
-def printIt(path, tags, args, source):
-    if (args[0]==0):
-        print("Direction: Reverse")
-    else:
-        print("Direction: Forward")
-
 def fillRGB (path, tags, args, source):
 	r = args[0]
 	g = args[1]
 	b = args[2]
 	start = args[3]
 	end = args[4]
-	# led.all_off()
 	led.fillRGB(r,g,b,start,end)
 	led.update()
 
 def singleLED (path, tags, args, source):
-	index = args[0]
-	r = args[1]
-	g = args[2]
-	b = args[3]
+	r = args[0]
+	g = args[1]
+	b = args[2]
+	index = args[3]
 	led.setRGB(index, r,g,b)
+
+def multipleLED (path, tags, args, source):
+	r = args[0]
+	g = args[1]
+	b = args[2]
+	for i in range(3, len(args)):
+		index = args[i]
+		led.setRGB(index, r,g,b)
 
 def update (path, tags, args, source):
 	led.update()
@@ -57,6 +58,7 @@ def allOff (path, tags, args, source):
 server.addMsgHandler( "/allOff", allOff)
 server.addMsgHandler( "/update", update)
 server.addMsgHandler( "/singleLED", singleLED)
+server.addMsgHandler( "/multipleLED", multipleLED)
 server.addMsgHandler( "/fillRGB", fillRGB)
 
 def each_frame():
