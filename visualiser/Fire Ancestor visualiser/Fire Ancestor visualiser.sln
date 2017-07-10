@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{1B5D18A5-08D7-587B-7A76-3C4BF5ADFA65}") = "Fire Ancestor visualiser", "Assembly-CSharp.csproj", "{80087233-008A-05D9-CF4D-0A9F11F3785E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80087233-008A-05D9-CF4D-0A9F11F3785E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80087233-008A-05D9-CF4D-0A9F11F3785E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80087233-008A-05D9-CF4D-0A9F11F3785E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80087233-008A-05D9-CF4D-0A9F11F3785E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
