@@ -2,8 +2,6 @@
 using System.Collections;
 using System;
 
-using SharpOSC;
-
 public class LayerController : MonoBehaviour {
 
 	public ParticleSystem pooferCW;

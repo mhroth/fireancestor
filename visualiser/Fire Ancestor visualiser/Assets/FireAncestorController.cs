@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System;
 using SharpOSC;
 
@@ -10,15 +11,26 @@ public class FireAncestorController : MonoBehaviour {
 	public float ySpacing = 7.2f;
 	public float xOffset = -19.608333333f;
 	public float zOffset = -11.608333333f;
-	public LayerController[] layers = new LayerController[25];
+//	public GameObject[] layers;
+	private List<GameObject> layers = new List<GameObject>();
+	private List<LayerController> layerControllers = new List<LayerController>();
+//	private LayerController[] layerControllers = new LayerController[25];
+	private ParticleSystem poofer;
 
 	// Use this for initialization
 	void Start () {
 
 		createFireAncestor ();
 
+		OSCListen ();
+
 		Application.runInBackground = true;
 
+
+
+	}
+
+	void OSCListen() {
 		HandleOscPacket callback = delegate(OscPacket packet) {
 
 			var message = (OscMessage)packet;
@@ -28,6 +40,9 @@ public class FireAncestorController : MonoBehaviour {
 			Debug.Log("Received poofer "+message+" "+type);
 
 			if (type.StartsWith("/poofer_")) {
+
+				int index;
+				float value;
 
 				string suffix = type.Split('_')[1];
 				//messsy but let's be sure here....
@@ -59,7 +74,7 @@ public class FireAncestorController : MonoBehaviour {
 					suffix == "24" ||
 					suffix == "25") {
 
-					float value = 0.0f;
+					value = 0.0f;
 
 					if (message.Arguments[0].GetType() == typeof(System.Single)) {
 						value = (float)message.Arguments[0];
@@ -67,38 +82,52 @@ public class FireAncestorController : MonoBehaviour {
 						value = (float)((int)message.Arguments[0]);
 					}
 
-					int index = Int32.Parse(suffix);
+					index = Int32.Parse(suffix);
 
 					Debug.Log("Received poofer "+index+" "+value);
 
-					poofPoofer(index, value);
+//					poofPoofer(index, value);
+
+					Debug.Log("Received poof "+index+" "+value);
+
+					LayerController layerController = layerControllers[index];
+
+					poofer = layerController.pooferCW;
+
+					Debug.Log ("poofer assigned: " + layerController);
+
+					int emit = Mathf.RoundToInt(value);
+
+					poofer.Emit (emit);
+
+				} else {
+					Debug.Log("Bad poofer index: "+message);
 				}
+
 			}
 
 		};
 
 		var listener = new UDPListener(55555, callback);
-
 	}
 
+
 	void poofPoofer (int index, float value) {
-		Debug.Log("Received poof "+index+" "+value);
-
-		LayerController layer = layers [index];
-
-//		ParticleSystem poofer = layer.pooferCW;
-//
-//		int emit = Mathf.RoundToInt(value);
-//
-//		poofer.Emit (emit);
 
 	}
 
 	void createFireAncestor () {
 		for (int i = 0; i < layersCount; i++) {
-			LayerController newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f)) as LayerController;
-			layers [i] = newLayer;
+//			layers[i] = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f)) as LayerController;
+
+			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f)) as GameObject;
+			LayerController newLayerController = newLayer.GetComponentInChildren<LayerController> ();
+			layerControllers.Add (newLayerController);
+//			layerControllers [i] = newLayerController;
+			Debug.Log ("Layersaa = " + layerControllers[i] );
 		}
+
+		Debug.Log ("Layers = " + layers );
 	}
 
 	// Update is called once per frame
