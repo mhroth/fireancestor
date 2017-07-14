@@ -29,13 +29,12 @@ public class FireAncestorController : MonoBehaviour {
 	public float ySpacing = 7.2f;
 	public float xOffset = -19.608333333f;
 	public float zOffset = -11.608333333f;
-//	public GameObject[] layers;
 	private List<GameObject> layers = new List<GameObject>();
 	private List<LayerController> layerControllers = new List<LayerController>();
-//	private LayerController[] layerControllers = new LayerController[25];
 	private ParticleSystem poofer;
 	private bool isOSCListning = false;
 	private List<OscMessage> messageQueue = new List<OscMessage> ();
+	public GameObject faParent;
 
 	public readonly SendMessageQueue msgQueue = new SendMessageQueue();
 
@@ -59,9 +58,6 @@ public class FireAncestorController : MonoBehaviour {
 		OSCListen ();
 
 		Application.runInBackground = true;
-
-
-
 	}
 
 	void OSCListen() {
@@ -82,7 +78,7 @@ public class FireAncestorController : MonoBehaviour {
 
 	void poofPoofer (int index, int direction, float value) {
 
-		Debug.Log("Received poofer "+index+" "+value);
+//		Debug.Log("Received poofer "+index+" "+value);
 
 		LayerController layerController = layerControllers[index];
 
@@ -167,7 +163,7 @@ public class FireAncestorController : MonoBehaviour {
 
 	void createFireAncestor () {
 		for (int i = 0; i < layersCount; i++) {
-			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f)) as GameObject;
+			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f), faParent.transform) as GameObject;
 			LayerController newLayerController = newLayer.GetComponentInChildren<LayerController> ();
 			layerControllers.Add (newLayerController);
 		}
