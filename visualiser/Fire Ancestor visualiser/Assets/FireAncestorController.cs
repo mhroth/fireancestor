@@ -80,13 +80,16 @@ public class FireAncestorController : MonoBehaviour {
 	}
 
 
-	void poofPoofer (int index, float value) {
+	void poofPoofer (int index, int direction, float value) {
 
 		Debug.Log("Received poofer "+index+" "+value);
 
 		LayerController layerController = layerControllers[index];
 
 		poofer = layerController.pooferCW;
+		if (direction == 1) {
+			poofer = layerController.pooferCCW;
+		}
 
 		int emit = Mathf.RoundToInt(value);
 
@@ -144,7 +147,16 @@ public class FireAncestorController : MonoBehaviour {
 
 				index = Int32.Parse(suffix);
 
-				poofPoofer (index, value);
+				string direction = type.Split ('_') [2];
+				int directionInt = 0;
+
+				if (direction == "0" || direction == "1") {
+					directionInt = Int32.Parse (direction);
+				} else {
+					Debug.Log ("Bad or no direction given");
+				}
+
+				poofPoofer (index, directionInt, value);
 
 			} else {
 				Debug.Log("Bad poofer index: "+message);
@@ -155,26 +167,16 @@ public class FireAncestorController : MonoBehaviour {
 
 	void createFireAncestor () {
 		for (int i = 0; i < layersCount; i++) {
-//			layers[i] = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f)) as LayerController;
-
 			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f)) as GameObject;
 			LayerController newLayerController = newLayer.GetComponentInChildren<LayerController> ();
 			layerControllers.Add (newLayerController);
-//			layerControllers [i] = newLayerController;
-//			Debug.Log ("Layersaa = " + layerControllers[i] );
 		}
 
-		Debug.Log ("Layers = " + layers );
+//		Debug.Log ("Layers = " + layers );
 	}
 
 	// Update is called once per frame
 	void Update () {
-//		if (isOSCListning) {
-//			FireAncestorController.FloatMessage tempMessage;
-//			while ((tempMessage = msgQueue.GetNextMessage()) != null) {
-//				FloatReceivedCallback(tempMessage);
-//			}
-//		}
 
 		if (isOSCListning) {
 			OscMessage tempMessage;
@@ -183,14 +185,4 @@ public class FireAncestorController : MonoBehaviour {
 			}
 		}
 	}
-
-
-//
-//	[MonoPInvokeCallback(typeof(SendHook))]
-//	private static void OnMessageSent(IntPtr context, string sendName, uint sendHash, IntPtr message) {
-//		if (hv_msg_hasFormat(message, "f")) {
-//			SendMessageQueue msgQueue = (SendMessageQueue) GCHandle.FromIntPtr(hv_getUserData(context)).Target;
-//			msgQueue.AddMessage(sendName, hv_msg_getFloat(message, 0));
-//		}
-//	}
 }
