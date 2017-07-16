@@ -1,5 +1,5 @@
 #N canvas 631 208 643 657 10;
-#X obj 100 450 tgl 30 0 empty empty empty 17 7 0 10 -261234 -258113
+#X obj 100 450 tgl 25 0 empty empty empty 17 7 0 10 -261234 -258113
 -258113 0 1;
 #X obj 100 145 r all-poofers;
 #X msg 187 233 0;
@@ -31,6 +31,7 @@
 #X connect 4 0 5 0;
 #X connect 6 0 4 0;
 #X connect 7 0 8 0;
+#X connect 8 0 6 1;
 #X connect 9 0 12 0;
 #X connect 10 0 9 0;
 #X connect 11 0 2 0;
@@ -50,4 +51,4 @@
 #X connect 23 1 6 0;
 #X connect 23 2 20 0;
 #X connect 24 0 11 1;
-#X coords 0 -1 1 1 30 30 1 100 450;
+#X coords 0 -1 1 1 25 25 1 100 450;
