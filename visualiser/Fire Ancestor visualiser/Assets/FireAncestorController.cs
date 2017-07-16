@@ -35,6 +35,7 @@ public class FireAncestorController : MonoBehaviour {
 	private bool isOSCListning = false;
 	private List<OscMessage> messageQueue = new List<OscMessage> ();
 	public GameObject faParent;
+	public float emissionRate = 100;
 
 	public readonly SendMessageQueue msgQueue = new SendMessageQueue();
 
@@ -77,9 +78,7 @@ public class FireAncestorController : MonoBehaviour {
 
 
 	void poofPoofer (int index, int direction, float value) {
-
-//		Debug.Log("Received poofer "+index+" "+value);
-
+		
 		LayerController layerController = layerControllers[index];
 
 		poofer = layerController.pooferCW;
@@ -87,9 +86,12 @@ public class FireAncestorController : MonoBehaviour {
 			poofer = layerController.pooferCCW;
 		}
 
-		int emit = Mathf.RoundToInt(value);
+		int emit = Mathf.RoundToInt(value * emissionRate);
 
 		poofer.Emit (emit);
+
+		layerController.poofPoofer ();
+
 
 	}
 
