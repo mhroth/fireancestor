@@ -143,16 +143,16 @@ public class FireAncestorController : MonoBehaviour {
 
 				index = Int32.Parse(suffix);
 
-				string direction = type.Split ('_') [2];
-				int directionInt = 0;
+//				string direction = type.Split ('_') [2];
+//				int directionInt = 0;
+//
+//				if (direction == "0" || direction == "1") {
+//					directionInt = Int32.Parse (direction);
+//				} else {
+//					Debug.Log ("Bad or no direction given");
+//				}
 
-				if (direction == "0" || direction == "1") {
-					directionInt = Int32.Parse (direction);
-				} else {
-					Debug.Log ("Bad or no direction given");
-				}
-
-				poofPoofer (index, directionInt, value);
+				poofPoofer (index, 0, value);
 
 			} else {
 				Debug.Log("Bad poofer index: "+message);
