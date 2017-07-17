@@ -20,7 +20,9 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#define TINYI2C_MCP23017_BASE_ADDRESS 0x20
+#if __cplusplus
+extern "C" {
+#endif
 
 typedef struct {
   int32_t i2cDesc;  // i2c device descriptor
@@ -44,3 +46,7 @@ void tinyI2C_close(tinyI2C *o);
  * @return 0 if successful, negative error code otherwise.
  */
 int tinyI2C_write(tinyI2C *o, uint8_t deviceAddress, uint8_t reg_addr, uint8_t data);
+
+#if __cplusplus
+}
+#endif
