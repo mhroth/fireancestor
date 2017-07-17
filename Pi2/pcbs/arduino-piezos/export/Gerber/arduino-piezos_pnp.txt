@@ -1,0 +1,40 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=arduino-piezos
+*Date=20:09:53
+*CreatedBy=Fritzing 0.9.3b.04.19.5c895d327c44a3114e5fcc9d8260daf0cbb52806
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;;39.6325;-6.71088;0;Bottom;TXT5
+2;;300 mil [THT];15.2372;-13.063;180;Bottom;D3
+3;;;16.6325;-4.9183;0;Bottom;TXT4
+4;;;16.6325;-2.92751;0;Bottom;TXT4
+5;1M;THT;61.1019;-21.0629;0;Bottom;R1
+6;;;16.6325;-7.63418;0;Bottom;TXT4
+7;;300 mil [THT];60.2371;-13.063;180;Bottom;D1
+8;;;2.99442;-4.06274;0;Bottom;Hole2
+9;;;93.022;-4.06274;0;Bottom;Hole1
+10;;300 mil [THT];37.8064;-13.063;180;Bottom;D2
+11;;;94.0219;-38.0629;0;Bottom;Hole4
+12;;THT;46.5987;-3.06277;90;Bottom;J4
+13;;audio-jack;15.0405;-41.5299;-90;Bottom;I3
+14;;;46.8103;-6.71088;0;Bottom;TXT5
+15;;;43.0209;-6.71088;0;Bottom;TXT5
+16;;300 mil [THT];82.2372;-13.063;180;Bottom;D0
+17;;;57.3438;-2.92068;0;Bottom;TXT5
+18;1M;THT;83.4183;-20.6829;0;Bottom;R0
+19;;;2.99442;-38.0629;0;Bottom;Hole3
+20;;;50.2336;-6.71088;0;Bottom;TXT5
+21;;audio-jack;37.3889;-41.5299;-90;Bottom;I2
+22;1M;THT;38.9875;-21.0628;0;Bottom;R2
+23;1M;THT;16.4183;-21.0628;0;Bottom;R3
+24;;audio-jack;81.3802;-41.5299;-90;Bottom;I0
+25;;audio-jack;59.3976;-41.5299;-90;Bottom;I1

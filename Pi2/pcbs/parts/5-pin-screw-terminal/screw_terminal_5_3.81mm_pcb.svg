@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   height="0.7221815in"
+   width="0.22590534in"
+   viewBox="0 0 225.90534 722.18148"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="screw_terminal_5_3.81mm_pcb.svg">
+  <metadata
+     id="metadata22">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs20" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1394"
+     inkscape:window-height="994"
+     id="namedview18"
+     showgrid="false"
+     inkscape:document-units="mm"
+     inkscape:zoom="10.174223"
+     inkscape:cx="-1.622389"
+     inkscape:cy="32.892697"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <g
+     id="silkscreen"
+     transform="matrix(0.99958112,0,0,1.0186261,-14.993717,-15.279392)">
+    <line
+       id="vertical-left"
+       x1="20"
+       x2="20"
+       y1="20"
+       y2="718.97601"
+       style="stroke:#ffffff;stroke-width:10" />
+    <line
+       id="bottom"
+       x1="20"
+       x2="236"
+       y1="718.97601"
+       y2="718.97601"
+       style="stroke:#ffffff;stroke-width:10" />
+    <line
+       id="vertical-right"
+       x1="236"
+       x2="236"
+       y1="718.97601"
+       y2="20"
+       style="stroke:#ffffff;stroke-width:10" />
+    <line
+       id="top"
+       x1="236"
+       x2="20"
+       y1="20"
+       y2="20"
+       style="stroke:#ffffff;stroke-width:10" />
+    <line
+       id="mid-vertical"
+       x1="196"
+       x2="196"
+       y1="718.97601"
+       y2="20"
+       style="stroke:#ffffff;stroke-width:5" />
+  </g>
+  <g
+     id="copper1"
+     transform="translate(4.9526684,17.564575)">
+    <g
+       id="copper0">
+      <rect
+         id="square"
+         width="60"
+         height="60"
+         x="78"
+         y="15.07837"
+         style="fill:none;stroke:#ffbf00;stroke-width:20" />
+      <circle
+         cx="108"
+         cy="45.078369"
+         id="connector0pin"
+         r="30"
+         style="fill:none;stroke:#ffbf00;stroke-width:20" />
+      <circle
+         cx="108"
+         cy="195.07851"
+         id="connector1pin"
+         r="30"
+         style="fill:none;stroke:#ffbf00;stroke-width:20" />
+      <circle
+         cx="108"
+         cy="345.0787"
+         id="connector2pin"
+         r="30"
+         style="fill:none;stroke:#ffbf00;stroke-width:20" />
+      <circle
+         cx="108"
+         cy="495.07883"
+         id="connector3pin"
+         r="30"
+         style="fill:none;stroke:#ffbf00;stroke-width:20" />
+      <circle
+         cx="108"
+         cy="645.07898"
+         id="connector4pin"
+         r="30"
+         style="fill:none;stroke:#ffbf00;stroke-width:20" />
+    </g>
+  </g>
+</svg>

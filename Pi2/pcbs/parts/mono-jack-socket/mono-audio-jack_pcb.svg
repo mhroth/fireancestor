@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Fritzing (http://www.fritzing.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.2"
+   x="0in"
+   y="0in"
+   width="0.63156796in"
+   height="0.44754645in"
+   viewBox="0 0 16.041821 11.367679"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="mono-audio-jack_pcb.svg">
+  <metadata
+     id="metadata48">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs46" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1916"
+     inkscape:window-height="1035"
+     id="namedview44"
+     showgrid="true"
+     inkscape:zoom="10.915897"
+     inkscape:cx="11.902698"
+     inkscape:cy="22.825591"
+     inkscape:window-x="13"
+     inkscape:window-y="12"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2"
+     inkscape:document-units="mm"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     showguides="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3617"
+       spacingx="0.035277765"
+       spacingy="0.035277775"
+       originx="0.88715994"
+       originy="3.6783904" />
+  </sodipodi:namedview>
+  <g
+     id="silkscreen"
+     transform="translate(0.88716005,-4.5139121)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.12814851;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -0.85172493,4.5394657 0,11.3842503 16.00668593,0 0,-11.3842503 z"
+       id="path4429"
+       inkscape:connector-curvature="0" />
+  </g>
+  <g
+     id="copper1"
+     transform="translate(0.9968503,-4.4042218)">
+    <g
+       id="copper0">
+      <circle
+         id="connector0pin"
+         cx="12.967978"
+         cy="10.793113"
+         r="0.87110001"
+         style="fill:none;stroke:#f7bd13;stroke-width:0.44220001"
+         connectorname="SLEEVE" />
+      <circle
+         id="connector1pin"
+         connectorname="SIGNAL"
+         cx="0.26797637"
+         cy="10.793113"
+         r="0.87110001"
+         style="fill:none;stroke:#f7bd13;stroke-width:0.44220001" />
+      <circle
+         id="connector2pin"
+         connectorname="NULL"
+         cx="3.3679764"
+         cy="5.6931133"
+         r="0.87110001"
+         style="fill:none;stroke:#f7bd13;stroke-width:0.44220001" />
+    </g>
+  </g>
+</svg>
