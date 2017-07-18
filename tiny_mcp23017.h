@@ -67,7 +67,7 @@ int tmcp23017_write(tinyMCP23017 *o);
  *
  * @return 0 if successful, negative error code otherwise.
  */
-int tmcp23017_all_off(tinyMCP23017 *o);
+int tmcp23017_clear(tinyMCP23017 *o);
 
 #if __cplusplus
 }

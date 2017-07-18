@@ -56,6 +56,14 @@ void tmcp23017_set_pin(tinyMCP23017 *o, uint8_t pin, bool state) {
   //     device_index, gpio_index, gpioab_index, reg_addr, o->gpio[2*device_index+gpioab_index]);
 }
 
+void tmcp23017_set_state(tinyMCP23017 *o, uint8_t *state) {
+  assert(o != NULL);
+  assert (state != NULL); // state MUST have a length of 16 bytes (256 bits)
+  memcpy(o->gpio, state, 16*sizeof(uint8_t));
+  int ret = tmcp23017_write(o);
+  return ret;
+}
+
 int tmcp23017_write_pin(tinyMCP23017 *o, uint8_t pin, bool state) {
   tmcp23017_set_pin(o, pin, state);
   uint8_t device_index = pin >> 4;
@@ -77,7 +85,7 @@ int tmcp23017_write(tinyMCP23017 *o) {
   return 0;
 }
 
-int tmcp23017_all_off(tinyMCP23017 *o) {
+int tmcp23017_clear(tinyMCP23017 *o) {
   assert(o != NULL);
   memset(o->gpio, 0, 16*sizeof(uint8_t)); // clear all pins
   int ret = tmcp23017_write(o);
