@@ -75,6 +75,9 @@ int main(int narg, char **argc) {
         if (!strncmp(tosc_getAddress(&osc), "/1/flame/", 9)) {
           if (!strcmp(tosc_getAddress(&osc)+9, "alloff")) {
             tmcp23017_all_off(&ti2c);
+          } else if (!strcmp(tosc_getAddress(&osc)+9, "allon")) {
+            memset(&ti2c.gpio, 0xFF, 16*sizeof(uint8_t));
+            tmcp23017_write(&ti2c);
           } else {
             int pin = atoi(tosc_getAddress(&osc)+9) - 1; // pins are 1-indexed
             bool state = tosc_getNextFloat(&osc) != 0.0f;
