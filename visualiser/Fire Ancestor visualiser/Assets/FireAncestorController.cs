@@ -36,6 +36,7 @@ public class FireAncestorController : MonoBehaviour {
 	private List<OscMessage> messageQueue = new List<OscMessage> ();
 	public GameObject faParent;
 	public float emissionRate = 100;
+	public float rotationSpeed = 0.0f;
 
 	public readonly SendMessageQueue msgQueue = new SendMessageQueue();
 
@@ -160,12 +161,29 @@ public class FireAncestorController : MonoBehaviour {
 				Debug.Log("Bad poofer index: "+message);
 			}
 
+		} else if (type.StartsWith("/motorSpeed")) {
+			
+			float value = 0.0f;
+
+			if (message.Arguments[0].GetType() == typeof(System.Single)) {
+				value = (float)message.Arguments[0];
+			} else if (message.Arguments[0].GetType() == typeof(System.Int32)) {
+				value = (float)((int)message.Arguments[0]);
+			}
+
+			rotationSpeed = value;
 		}
 	}
 
 	void createFireAncestor () {
+		float xCurveOffset, zCurveOffset;
+		float xCurveMagnitude = 0.5f;
+		float zCurveMagnitude = 0.5f;
 		for (int i = 0; i < layersCount; i++) {
-			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset, i * ySpacing, i * zOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f), faParent.transform) as GameObject;
+			xCurveOffset = Mathf.Sin ((float)i / (float)layersCount * (Mathf.PI*3f)) * (xCurveMagnitude * (float)i);
+			zCurveOffset = Mathf.Cos ((float)i / (float)layersCount * (Mathf.PI*3f)) * (zCurveMagnitude * (float)i);
+			Debug.Log ("xCurveOffset = " + xCurveOffset);
+			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset + xCurveOffset, i * ySpacing, i * zOffset + zCurveOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f), faParent.transform) as GameObject;
 			LayerController newLayerController = newLayer.GetComponentInChildren<LayerController> ();
 			layerControllers.Add (newLayerController);
 		}
@@ -182,5 +200,7 @@ public class FireAncestorController : MonoBehaviour {
 				handleOSCMessage(tempMessage);
 			}
 		}
+
+		faParent.transform.Rotate (new Vector3 (0.0f, rotationSpeed, 0.0f));
 	}
 }
