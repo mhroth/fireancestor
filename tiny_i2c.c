@@ -68,7 +68,8 @@ int tinyI2C_write(tinyI2C *o, uint8_t deviceAddress, uint8_t reg_addr, uint8_t d
 
   int ret = ioctl(o->i2cDesc, I2C_RDWR, &packets);
   if (ret < 0) {
-    fprintf(stderr, "Write to I2C Device (dev/reg: 0x%x/0x%x) failed (ret=%i)\n", deviceAddress, reg_addr, ret);
+    fprintf(stderr, "Write to I2C Device (dev/reg: 0x%x/0x%x) failed (ret=%i)\n",
+        deviceAddress, reg_addr, ret);
   }
 
   return ret;
