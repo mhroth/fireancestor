@@ -2,8 +2,9 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/FireAncestorController.cs">
     <Files>
-      <File FileName="Assets/FireAncestorController.cs" Line="163" Column="4" />
-      <File FileName="Assets/LayerController.cs" Line="11" Column="2" />
+      <File FileName="Assets/FireAncestorController.cs" Line="247" Column="3" />
+      <File FileName="Assets/LayerController.cs" Line="27" Column="1" />
+      <File FileName="Assets/Heavy/Hv_fireancestor_poofer_audio_AudioLib.cs" Line="246" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
