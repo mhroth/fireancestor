@@ -113,7 +113,7 @@ public class FireAncestorController : MonoBehaviour {
 			lightToControl = lightW;
 		}
 
-		Debug.Log ("Setting color: " + lightColor);
+//		Debug.Log ("Setting color: " + lightColor);
 
 		lightToControl.color = lightColor;
 
@@ -239,7 +239,7 @@ public class FireAncestorController : MonoBehaviour {
 		for (int i = 0; i < layersCount; i++) {
 			xCurveOffset = Mathf.Sin ((float)i / (float)layersCount * (Mathf.PI*3f)) * (xCurveMagnitude * (float)i);
 			zCurveOffset = Mathf.Cos ((float)i / (float)layersCount * (Mathf.PI*3f)) * (zCurveMagnitude * (float)i);
-			Debug.Log ("xCurveOffset = " + xCurveOffset);
+//			Debug.Log ("xCurveOffset = " + xCurveOffset);
 			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset + xCurveOffset, i * ySpacing, i * zOffset + zCurveOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f), faParent.transform) as GameObject;
 			LayerController newLayerController = newLayer.GetComponentInChildren<LayerController> ();
 			layerControllers.Add (newLayerController);
