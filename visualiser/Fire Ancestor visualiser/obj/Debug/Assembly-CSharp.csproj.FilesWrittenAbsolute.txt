@@ -43,3 +43,6 @@
 /Users/yulilevtov/workspace/fireancestor/visualiser/Fire Ancestor visualiser/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/yulilevtov/workspace/fireancestor/visualiser/Fire Ancestor visualiser/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/yulilevtov/workspace/fireancestor/visualiser/Fire Ancestor visualiser/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/yulilevtov1/workspace/fireancestor/visualiser/Fire Ancestor visualiser/Temp/bin/Debug/UnityEngine.Timeline.dll
+/Users/yulilevtov1/workspace/fireancestor/visualiser/Fire Ancestor visualiser/Temp/bin/Debug/ExCSS.Unity.dll
+/Users/yulilevtov1/workspace/fireancestor/visualiser/Fire Ancestor visualiser/Temp/bin/Debug/Unity.Legacy.NRefactory.dll
