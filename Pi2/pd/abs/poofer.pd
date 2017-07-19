@@ -24,7 +24,7 @@
 #X obj 187 93 t a a a;
 #X obj 329 414 t b a;
 #X obj 100 424 t a a a;
-#X obj 232 180 min 250;
+#X obj 232 180 min 1000;
 #X connect 1 0 23 0;
 #X connect 2 0 23 0;
 #X connect 3 0 23 0;
