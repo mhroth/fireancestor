@@ -161,6 +161,17 @@ public class FireAncestorController : MonoBehaviour {
 				Debug.Log("Bad poofer index: "+message);
 			}
 
+		} else if (type.StartsWith("/motorSpeed")) {
+			
+			float value = 0.0f;
+
+			if (message.Arguments[0].GetType() == typeof(System.Single)) {
+				value = (float)message.Arguments[0];
+			} else if (message.Arguments[0].GetType() == typeof(System.Int32)) {
+				value = (float)((int)message.Arguments[0]);
+			}
+
+			rotationSpeed = value;
 		}
 	}
 
