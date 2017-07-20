@@ -56,8 +56,10 @@ int main(int narg, char **argc) {
   // for receiving commands from TouchOSC
   const int fd_receive = openReceiveSocket();
 
+  // open the i2c socket
   tinyMCP23017 ti2c;
   tmcp23017_open(&ti2c, "/dev/i2c-1");
+  tmcp23017_clear(&ti2c); // turn off all outputs
 
   while (_keepRunning) {
 
