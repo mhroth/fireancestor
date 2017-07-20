@@ -56,8 +56,10 @@ int main(int narg, char **argc) {
   // for receiving commands from TouchOSC
   const int fd_receive = openReceiveSocket();
 
+  // open the i2c socket
   tinyMCP23017 ti2c;
   tmcp23017_open(&ti2c, "/dev/i2c-1");
+  tmcp23017_clear(&ti2c); // turn off all outputs
 
   while (_keepRunning) {
 
@@ -79,19 +81,17 @@ int main(int narg, char **argc) {
 
       while ((len = recvfrom(fd_receive, buffer, sizeof(buffer), 0, (struct sockaddr *) &sin, (socklen_t *) &sa_len)) > 0) {
         if (!tosc_parseMessage(&osc, buffer, len)) {
-          if (!strncmp(tosc_getAddress(&osc), "/1/flame/", 9)) {
-            if (!strcmp(tosc_getAddress(&osc)+9, "alloff")) {
+          if (!strncmp(tosc_getAddress(&osc), "/pins/", 6)) {
+            if (!strcmp(tosc_getAddress(&osc)+6, "alloff")) {
               tmcp23017_clear(&ti2c);
-            } else if (!strcmp(tosc_getAddress(&osc)+9, "allon")) {
+            } else if (!strcmp(tosc_getAddress(&osc)+6, "allon")) {
               memset(&ti2c.gpio, 0xFF, 16*sizeof(uint8_t));
               tmcp23017_write(&ti2c);
             } else {
-              int pin = atoi(tosc_getAddress(&osc)+9) - 1; // pins are 1-indexed
+              int pin = atoi(tosc_getAddress(&osc)+6) - 1; // pins are 1-indexed
               bool state = tosc_getNextFloat(&osc) != 0.0f;
               tmcp23017_write_pin(&ti2c, pin, state);
             }
-          } else if (!strncmp(tosc_getAddress(&osc), "/1/mallet/", 10)) {
-
           } else {
             tosc_printOscBuffer(buffer, len);
           }
@@ -100,8 +100,10 @@ int main(int narg, char **argc) {
     }
   }
 
-  close(fd_receive); // the listening socket
+  // close the listening socket
+  close(fd_receive);
 
+  // close the i2c connection
   tmcp23017_close(&ti2c);
 
   return 0;
