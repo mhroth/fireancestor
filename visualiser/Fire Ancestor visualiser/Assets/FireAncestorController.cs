@@ -24,7 +24,8 @@ public class SendMessageQueue {
 
 public class FireAncestorController : MonoBehaviour {
 
-	public GameObject layerPrefab;
+	public GameObject layerPrefabCW;
+	public GameObject layerPrefabCCW;
 	public int layersCount = 25;
 	public float ySpacing = 0.216f;
 	public float xOffset = -19.608333333f;
@@ -236,11 +237,20 @@ public class FireAncestorController : MonoBehaviour {
 		float xCurveOffset, zCurveOffset;
 		float xCurveMagnitude = 0.015f;
 		float zCurveMagnitude = 0.015f;
+		GameObject prefab = layerPrefabCW;
+
 		for (int i = 0; i < layersCount; i++) {
 			xCurveOffset = Mathf.Sin ((float)i / (float)layersCount * (Mathf.PI*3f)) * (xCurveMagnitude * (float)i);
 			zCurveOffset = Mathf.Cos ((float)i / (float)layersCount * (Mathf.PI*3f)) * (zCurveMagnitude * (float)i);
-//			Debug.Log ("xCurveOffset = " + xCurveOffset);
-			GameObject newLayer = Instantiate (layerPrefab, new Vector3 (i * xOffset + xCurveOffset, i * ySpacing, i * zOffset + zCurveOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f), faParent.transform) as GameObject;
+
+			if ((i % 2) == 0) {
+				Debug.Log ("Odd so using CCW " + i);
+				prefab = layerPrefabCCW;
+			} else {
+				prefab = layerPrefabCW;
+			}
+
+			GameObject newLayer = Instantiate (prefab, new Vector3 (i * xOffset + xCurveOffset, i * ySpacing, i * zOffset + zCurveOffset), Quaternion.Euler(0.0f, i * 15f, 0.0f), faParent.transform) as GameObject;
 			LayerController newLayerController = newLayer.GetComponentInChildren<LayerController> ();
 			layerControllers.Add (newLayerController);
 		}
@@ -258,6 +268,6 @@ public class FireAncestorController : MonoBehaviour {
 			}
 		}
 
-		faParent.transform.Rotate (new Vector3 (0.0f, rotationSpeed, 0.0f));
+//		faParent.transform.Rotate (new Vector3 (0.0f, rotationSpeed, 0.0f));
 	}
 }
