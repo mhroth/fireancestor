@@ -1,4 +1,4 @@
-#N canvas 376 354 276 336 10;
+#N canvas 376 354 313 250 10;
 #X obj 40 23 r piezo_input;
 #X obj 40 45 route \$1;
 #X obj 105 94 print \$1;

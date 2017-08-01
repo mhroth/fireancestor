@@ -268,6 +268,7 @@ public class FireAncestorController : MonoBehaviour {
 			}
 		}
 
-//		faParent.transform.Rotate (new Vector3 (0.0f, rotationSpeed, 0.0f));
+		faParent.transform.Rotate (new Vector3 (0.0f, rotationSpeed, 0.0f));
 	}
+
 }
