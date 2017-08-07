@@ -37,7 +37,7 @@ public class FireAncestorController : MonoBehaviour {
 	private List<OscMessage> messageQueue = new List<OscMessage> ();
 	public GameObject faParent;
 	public float emissionRate = 100;
-	public float rotationSpeed = 0.0f;
+	public float motorRPM = 0.0f;
 	public Light lightN;
 	public Light lightE;
 	public Light lightS;
@@ -195,7 +195,7 @@ public class FireAncestorController : MonoBehaviour {
 				value = (float)((int)message.Arguments [0]);
 			}
 
-			rotationSpeed = value;
+			motorRPM = value;
 		} else if (type.StartsWith ("/light")) {
 			
 			float r = 0;
@@ -268,7 +268,11 @@ public class FireAncestorController : MonoBehaviour {
 			}
 		}
 
-		faParent.transform.Rotate (new Vector3 (0.0f, rotationSpeed, 0.0f));
+
+	}
+
+	void FixedUpdate () {
+		faParent.transform.Rotate (new Vector3 (0.0f, motorRPM * 0.1f, 0.0f));
 	}
 
 }

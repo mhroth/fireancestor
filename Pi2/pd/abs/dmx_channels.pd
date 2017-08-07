@@ -1,0 +1,28 @@
+#N canvas 276 259 433 249 10;
+#X obj 33 26 r toDMX;
+#X obj 33 80 unpack f f f;
+#X msg 33 170 send /dmx/universe/1/\$2 \$1 \, send /dmx/universe/1/\$4
+\$3 \, send /dmx/universe/1/\$6 \$5;
+#X obj 141 35 loadbang;
+#X obj 141 79 + 1;
+#X obj 171 79 + 2;
+#X obj 33 136 pack f f f f f f;
+#X obj 33 205 s dmxChanneled;
+#X obj 141 57 \$2;
+#X obj 33 58 route \$1;
+#X text 224 51 \$2 = starting channel;
+#X text 224 31 \$1 = lamp index;
+#X connect 0 0 9 0;
+#X connect 1 0 6 0;
+#X connect 1 1 6 2;
+#X connect 1 2 6 4;
+#X connect 2 0 7 0;
+#X connect 3 0 8 0;
+#X connect 4 0 6 3;
+#X connect 5 0 6 5;
+#X connect 6 0 2 0;
+#X connect 8 0 4 0;
+#X connect 8 0 5 0;
+#X connect 8 0 6 1;
+#X connect 9 0 1 0;
+#X coords 0 249 1 248 25 25 0;
