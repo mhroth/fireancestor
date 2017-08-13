@@ -1,14 +1,14 @@
-#N canvas 631 208 643 657 10;
+#N canvas 294 104 643 657 10;
 #X obj 100 450 tgl 25 0 empty empty empty 17 7 0 10 -261234 -258113
 -258113 0 1;
 #X obj 100 145 r all-poofers;
 #X msg 187 233 0;
 #X msg 347 185 1;
-#X msg 159 560 \$2 \$1;
-#X obj 159 582 s #toGPIO;
-#X obj 159 538 pack f f;
-#X obj 204 472 loadbang;
-#X obj 204 494 \$1;
+#X msg 149 530 \$2 \$1;
+#X obj 149 552 s #toGPIO;
+#X obj 149 508 pack f f;
+#X obj 194 442 loadbang;
+#X obj 194 464 \$1;
 #X obj 187 49 == \$1;
 #X obj 187 27 r single-on;
 #X obj 187 211 del 1000;
@@ -25,6 +25,8 @@
 #X obj 329 414 t b a;
 #X obj 100 424 t a a a;
 #X obj 232 180 min 1000;
+#X obj 268 311 r pinsOSCin;
+#X obj 266 334 OSCroute /\$1;
 #X connect 1 0 23 0;
 #X connect 2 0 23 0;
 #X connect 3 0 23 0;
@@ -51,4 +53,6 @@
 #X connect 23 1 6 0;
 #X connect 23 2 20 0;
 #X connect 24 0 11 1;
+#X connect 25 0 26 0;
+#X connect 26 0 23 0;
 #X coords 0 -1 1 1 25 25 1 100 450;
