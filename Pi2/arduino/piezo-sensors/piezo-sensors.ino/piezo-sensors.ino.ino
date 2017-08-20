@@ -32,11 +32,14 @@ void loop() {
   sensorReadings[15] = analogRead(A15);
 
   for (int i = 0; i < sensorsCount; i++) {
+      int val = sensorReadings[i];
+      if ( val > 239 ) val = 239;
+
       Serial.write(i);
-      Serial.write(sensorReadings[i]+sensorsCount);
+      Serial.write(val + 16);
       
       if (arduinoDebug) {
-//        Serial.println(sensorReadings[i]);
+        Serial.println(sensorReadings[i]);
       }
   }
   
