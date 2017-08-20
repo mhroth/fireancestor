@@ -6,7 +6,7 @@ int sensorsCount = 16;
 int sensorReadings[16];
 int offset = 10;
 
-bool arduinoDebug = true;
+bool arduinoDebug = false;
 
 void setup() {
   Serial.begin(9600);       // use the serial port
@@ -32,15 +32,12 @@ void loop() {
   sensorReadings[15] = analogRead(A15);
 
   for (int i = 0; i < sensorsCount; i++) {
-    if (sensorReadings[i] > threshold) {
       Serial.write(i);
-      Serial.write(sensorReadings[i]+offset);
-
+      Serial.write(sensorReadings[i]+sensorsCount);
+      
       if (arduinoDebug) {
-        Serial.print(i);
-        Serial.println(sensorReadings[i]+offset);      
+//        Serial.println(sensorReadings[i]);
       }
-    }
   }
   
   delay(5);  // delay to avoid overloading the serial port buffer
