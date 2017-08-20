@@ -1,0 +1,28 @@
+#N canvas 1260 284 450 300 10;
+#X obj 99 50 noise~;
+#X obj 99 72 *~ 0.2;
+#X obj 99 94 lop~ 5000;
+#X obj 99 226 *~;
+#X obj 99 248 dac~;
+#X obj 195 201 hv_vline~;
+#X msg 195 178 1 5 \, 0 \$1 \$2;
+#X obj 195 155 pack f f f;
+#X obj 195 84 r poof @hv_event;
+#X obj 195 106 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 223 109 r decay @hv_param 5 10000 100;
+#X obj 150 48 r filter_freq @hv_param 0 20000 5000;
+#X obj 252 130 r hold @hv_param 5 10000 100;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 4 1;
+#X connect 5 0 3 1;
+#X connect 6 0 5 0;
+#X connect 7 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 7 0;
+#X connect 10 0 7 1;
+#X connect 11 0 2 1;
+#X connect 12 0 7 2;

@@ -1,0 +1,12 @@
+#N canvas 661 24 770 300 10;
+#X obj 102 157 OSCroute /1;
+#X obj 102 120 OSCroute /\$1;
+#X obj 101 188 sel 1;
+#X obj 102 219 \$1;
+#X obj 102 79 r branchOSCin;
+#X obj 101 246 s #branch-index;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 1 0;

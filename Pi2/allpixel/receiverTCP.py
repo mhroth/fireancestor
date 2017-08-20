@@ -9,7 +9,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #Load driver for the AllPixel
 from bibliopixel.drivers.serial_driver import *
 #set number of pixels & LED type here 
-driver = DriverSerial(num = 10, type = LEDTYPE.WS2812B, dev = "/dev/cu.usbmodem9", c_order = ChannelOrder.GRB)
+driver = DriverSerial(num = 10, type = LEDTYPE.WS2812B, dev = "/dev/ttyACM0", c_order = ChannelOrder.GRB)
 
 #load the LEDStrip class
 from bibliopixel.led import *
@@ -21,18 +21,16 @@ led = LEDStrip(driver)
 
 
 # Bind the socket to the port
-server_address = ('localhost', 10000)
+server_address = ('localhost', 10002)
 print >>sys.stderr, 'starting up on %s port %s' % server_address
 sock.bind(server_address)
 
 # Listen for incoming connections
 sock.listen(1)
 
-def updateLED (index = 0):
-	print('received ', index)
-	index = int(index)
+def updateLED ():
 	led.all_off()
-	led.setRGB(index, 255,128,64)
+	led.setRGB(5, 255,128,64)
 	led.update()
 
 while True:
@@ -49,7 +47,7 @@ while True:
             if data:
                 print >>sys.stderr, 'sending data back to the client'
                 connection.sendall(data)
-                updateLED(data)
+                updateLED()
             else:
                 print >>sys.stderr, 'no more data from', client_address
                 break

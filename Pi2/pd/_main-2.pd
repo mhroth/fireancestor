@@ -1,0 +1,28 @@
+#N canvas 300 306 604 300 10;
+#X declare -path abs;
+#X obj 59 22 declare -path abs;
+#X obj 117 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 117 72 sel 0 1;
+#X msg 117 94 close;
+#X msg 44 76 devices;
+#X obj 82 193 print;
+#X msg 157 94 open 0;
+#X obj 104 125 comport;
+#X obj 282 163 sendOSC;
+#X obj 282 61 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 282 85 metro 1000;
+#X msg 293 138 disconnect \, connect 192.168.0.30 5005;
+#X msg 282 112 send /direction 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 1 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 7 0;
+#X connect 6 0 7 0;
+#X connect 7 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 12 0;
+#X connect 11 0 8 0;
+#X connect 12 0 8 0;
